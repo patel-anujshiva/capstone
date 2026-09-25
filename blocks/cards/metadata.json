@@ -1,0 +1,31 @@
+{
+  "variantName": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": true,
+    "imagePattern": "large",
+    "structure": "5 images + list"
+  },
+  "contentPattern": "A responsive grid of cards; each row is one card (image cell + body cell). The minimal-dark-withimg option renders borderless, image-led teaser cards.",
+  "usage": {
+    "reuseCount": 5,
+    "pagesUsing": [
+      "/ca/en"
+    ],
+    "lastUsed": "2026-09-24T14:18:43.850Z"
+  },
+  "options": [
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    }
+  ],
+  "memberVariantIds": [
+    "v_cards_primary",
+    "v_cards_mdw"
+  ]
+}

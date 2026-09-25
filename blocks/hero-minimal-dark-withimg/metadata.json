@@ -1,0 +1,19 @@
+{
+  "variantName": "hero-minimal-dark-withimg",
+  "baseBlock": "hero",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "heading + 2 images + list"
+  },
+  "contentPattern": "A section heading followed by a row of image teasers (image + title + text), one teaser per row.",
+  "usage": {
+    "reuseCount": 1
+  },
+  "options": [],
+  "memberVariantIds": ["v_9f1b9f67bda6"]
+}

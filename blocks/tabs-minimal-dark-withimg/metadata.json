@@ -1,0 +1,25 @@
+{
+  "variantName": "tabs-minimal-dark-withimg",
+  "baseBlock": "tabs",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": true,
+    "imagePattern": "large",
+    "structure": "32 images + list"
+  },
+  "contentPattern": "A filter-tab strip above a card grid; each row is a card (image + heading + text) with an optional category used for filtering.",
+  "usage": {
+    "reuseCount": 3,
+    "pagesUsing": [
+      "/ca/en/adventures"
+    ],
+    "lastUsed": "2026-09-24T13:59:40.437Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "v_8ab7ece34e9a-3"
+  ]
+}

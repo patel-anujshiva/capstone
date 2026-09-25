@@ -1,0 +1,42 @@
+{
+  "variantName": "hero",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": true,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "image"
+  },
+  "contentPattern": "A full-width hero image with an optional overlaid heading. The minimal-dark-withimg options render an image-led hero with no text overlay.",
+  "usage": {
+    "reuseCount": 32,
+    "pagesUsing": [
+      "/ca/en/adventures",
+      "/ca/en"
+    ],
+    "lastUsed": "2026-09-24T14:18:43.850Z"
+  },
+  "options": [
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    },
+    {
+      "class": "minimal-dark-withimg-2",
+      "label": "Minimal Dark Withimg 2"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    }
+  ],
+  "memberVariantIds": [
+    "v_hero_primary",
+    "v_hero_mdw",
+    "v_hero_mdw_2",
+    "v_hero_mdw_3"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "list"
+  },
+  "contentPattern": "One row per item: cell 1 is the question/label (summary), cell 2 is the answer/body. Rows collapse/expand with a +/× toggle.",
+  "usage": {
+    "reuseCount": 3,
+    "pagesUsing": [
+      "/ca/en/faqs"
+    ],
+    "lastUsed": "2026-09-24"
+  },
+  "options": [],
+  "memberVariantIds": ["v_4ecd3661fdd5"]
+}

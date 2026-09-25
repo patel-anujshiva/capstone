@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "capstone": {
+      "previewOrg": "patel-anujshiva",
+      "previewSite": "capstone",
+      "contentHostUrl": "https://content.da.live/patel-anujshiva/capstone/"
+    }
+  },
+  "features": [
+    "site-planning"
+  ]
+}

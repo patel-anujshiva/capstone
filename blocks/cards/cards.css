@@ -1,27 +1,82 @@
+/* Block: cards — WKND image-list card grid
+ * Values extracted from source .cmp-image-list computed styles.
+ * Decorated DOM: .cards > ul > li > (img.cards-card-image + div.cards-card-body[h3>a + p])
+ */
+
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px 14px;   /* source column gutter */      /* source li margin-bottom */
 }
 
+/* borderless, image-led cards (WKND has no card border/background) */
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards .cards-card-body {
-  margin: 16px;
+  border: none;
+  background: none;
 }
 
 .cards .cards-card-image {
   line-height: 0;
 }
 
+/* fixed-height landscape image */
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 200px;
   object-fit: cover;
+  border-radius: 0;
+}
+
+/* text block sits flush-left under the image */
+.cards .cards-card-body {
+  margin: 8px 0 0;
+}
+
+/* title — body font, semibold, uppercase, dark (overrides global serif h3) */
+.cards .cards-card-body h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.cards .cards-card-body h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* description — small uppercase grey, single-line ellipsis */
+.cards .cards-card-body p {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: #696969;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* option: minimal-dark-withimg — borderless image-led cards on dark sections
+   (WKND contributor/teaser style). Base is already borderless; this keeps the
+   option structurally sound and inverts text color for dark backgrounds. */
+.cards.minimal-dark-withimg > ul > li {
+  border: none;
+  background: none;
+}
+
+.cards.minimal-dark-withimg .cards-card-body {
+  margin: 12px 0 0;
+}
+
+.cards.minimal-dark-withimg .cards-card-body h3,
+.cards.minimal-dark-withimg .cards-card-body h3 a:any-link {
+  color: #fff;
 }

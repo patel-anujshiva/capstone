@@ -1,0 +1,42 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "2 CTAs + image + list"
+  },
+  "contentPattern": "One row per slide; first column is the slide image, remaining columns are optional slide content. Indicators and prev/next controls render below the slide.",
+  "usage": {
+    "reuseCount": 36,
+    "pagesUsing": [
+      "/ca/en/adventures/bali-surf-camp",
+      "/ca/en"
+    ],
+    "lastUsed": "2026-09-24T14:18:43.850Z"
+  },
+  "options": [
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    },
+    {
+      "class": "minimal-dark-withimg-2",
+      "label": "Minimal Dark Withimg 2"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    }
+  ],
+  "memberVariantIds": [
+    "v_85f1e746e380",
+    "v_85f1e746e380-1",
+    "v_85f1e746e380-2",
+    "v_85f1e746e380-3"
+  ]
+}

@@ -1,0 +1,40 @@
+/*
+ * Hero (minimal-dark-withimg) — structural styles only.
+ * Section heading above a responsive row of image teasers.
+ * Forked variant: every selector is scoped to the full variant class.
+ */
+
+.hero-minimal-dark-withimg .hero-minimal-dark-withimg-heading {
+  margin-bottom: 24px;
+}
+
+.hero-minimal-dark-withimg .hero-minimal-dark-withimg-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.hero-minimal-dark-withimg .hero-minimal-dark-withimg-image img,
+.hero-minimal-dark-withimg .hero-minimal-dark-withimg-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.hero-minimal-dark-withimg .hero-minimal-dark-withimg-content {
+  padding-top: 12px;
+}
+
+@media (width >= 600px) {
+  .hero-minimal-dark-withimg .hero-minimal-dark-withimg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .hero-minimal-dark-withimg .hero-minimal-dark-withimg-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

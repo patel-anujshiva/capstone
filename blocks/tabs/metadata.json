@@ -1,0 +1,51 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "heading + text + image + list"
+  },
+  "contentPattern": "One row per tab: the first cell of each row is the tab label, the row body is the panel content. First panel shown by default.",
+  "usage": {
+    "reuseCount": 33,
+    "pagesUsing": [
+      "/ca/en/adventures/bali-surf-camp"
+    ],
+    "lastUsed": "2026-09-24T13:50:24.748Z"
+  },
+  "options": [
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    },
+    {
+      "class": "minimal-dark-withimg-2",
+      "label": "Minimal Dark Withimg 2"
+    },
+    {
+      "class": "minimal-dark-withimg-3",
+      "label": "Minimal Dark Withimg 3"
+    },
+    {
+      "class": "minimal-dark-withimg-4",
+      "label": "Minimal Dark Withimg 4"
+    },
+    {
+      "class": "minimal-dark-withimg-5",
+      "label": "Minimal Dark Withimg 5"
+    }
+  ],
+  "memberVariantIds": [
+    "v_ce821482035f",
+    "v_8ab7ece34e9a",
+    "v_8ab7ece34e9a-1",
+    "v_8ab7ece34e9a-2",
+    "v_8ab7ece34e9a-4",
+    "v_e0f5a3e4d7c8"
+  ]
+}

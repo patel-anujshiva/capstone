@@ -1,0 +1,58 @@
+/*
+ * Breadcrumbs Block
+ * Horizontal inline trail matching the WKND source: uppercase 14px crumbs in the
+ * text color (not link blue), bold links, and a brand-yellow triangle separator
+ * before every crumb except the first.
+ * Values extracted from computed styles on wknd.site (.cmp-breadcrumb).
+ */
+
+.breadcrumbs nav ol {
+  display: block;
+  margin: 0;
+  padding: 0 12px 0 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.breadcrumbs nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 5px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+.breadcrumbs nav li:first-child {
+  padding-left: 0;
+}
+
+/* brand-yellow triangle separator before every crumb except the first */
+.breadcrumbs nav li:not(:first-child)::before {
+  content: '';
+  display: inline-block;
+  margin-right: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 7px;
+  border-color: transparent transparent transparent var(--brand-primary);
+  vertical-align: middle;
+}
+
+.breadcrumbs nav a:any-link {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.breadcrumbs nav a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+/* current page (final crumb) */
+.breadcrumbs nav li[aria-current='page'] {
+  font-weight: 400;
+}
