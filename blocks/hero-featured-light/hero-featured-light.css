@@ -1,0 +1,119 @@
+/*
+ * Hero (featured-light) — featured-article teaser.
+ * Light-grey panel with a side-by-side layout: image beside a text column
+ * (eyebrow, serif title, description, yellow CTA). Values extracted from the
+ * WKND source (.cmp-teaser--featured). Forked variant: every selector scoped
+ * to .hero-featured-light.
+ *
+ * Decorated DOM:
+ *   .hero-featured-light
+ *     .hero-featured-light-inner
+ *       .hero-featured-light-content   > p(eyebrow) h2(title) p(desc) p>a(CTA)
+ *       .hero-featured-light-image     > picture > img
+ */
+
+/* ---- layout (mobile-first: stacked, image on top) ---- */
+.hero-featured-light .hero-featured-light-inner {
+  display: flex;
+  flex-direction: column-reverse; /* image above the text panel on mobile */
+  align-items: stretch;
+}
+
+.hero-featured-light .hero-featured-light-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  background-color: var(--brand-third); /* #ebebeb light-grey panel */
+}
+
+.hero-featured-light .hero-featured-light-image {
+  display: flex;
+}
+
+.hero-featured-light .hero-featured-light-image picture,
+.hero-featured-light .hero-featured-light-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- text ---- */
+.hero-featured-light .hero-featured-light-content > p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24.5px; /* 1.75 */
+  color: var(--text-color);
+}
+
+/* eyebrow / pretitle — title case (NOT uppercase), bold */
+.hero-featured-light .hero-featured-light-content > p:first-child {
+  margin: 0 0 13.5px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 45px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* serif title */
+.hero-featured-light .hero-featured-light-content h2 {
+  margin: 18px 0;
+  padding: 0;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 54px;
+  color: var(--text-color);
+}
+
+/* CTA container (the paragraph wrapping the link) */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-featured-light .hero-featured-light-content p:has(a) {
+  margin: 18px 0 0;
+}
+
+/* CTA button — yellow, square, uppercase (link is not EDS .button-decorated) */
+.hero-featured-light .hero-featured-light-content a:any-link {
+  display: inline-block;
+  width: fit-content;
+  padding: 14px 35px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--brand-primary); /* #ffea00 */
+  color: var(--text-color);               /* #202020 */
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-featured-light .hero-featured-light-content a:hover,
+.hero-featured-light .hero-featured-light-content a:focus-visible {
+  background-color: var(--brand-primary-dark); /* #e6d200 */
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* ---- desktop: image left (~62%), content panel right (~38%) ---- */
+@media (width >= 900px) {
+  .hero-featured-light .hero-featured-light-inner {
+    flex-direction: row-reverse; /* content in DOM first -> rendered on the right */
+  }
+
+  .hero-featured-light .hero-featured-light-content {
+    flex: 0 0 37.6%;
+    padding: 63px 36px 36px;
+  }
+
+  .hero-featured-light .hero-featured-light-image {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "variantName": "quote",
+  "baseBlock": "quote",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "heading + image"
+  },
+  "contentPattern": "A pull-quote (blockquote) with an optional attribution line; the minimal-dark-withimg option adds a large image above and renders the quote on a muted panel.",
+  "usage": {
+    "reuseCount": 5,
+    "pagesUsing": [
+      "/ca/en/magazine/arctic-surfing"
+    ],
+    "lastUsed": "2026-09-24T13:40:00.000Z"
+  },
+  "options": [
+    {
+      "class": "minimal-dark-withimg",
+      "label": "Minimal Dark Withimg"
+    }
+  ],
+  "memberVariantIds": [
+    "v_b7118a52fdcc",
+    "v_b7118a52fdcc-1"
+  ]
+}

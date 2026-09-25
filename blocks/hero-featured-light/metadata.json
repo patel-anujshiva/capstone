@@ -1,0 +1,19 @@
+{
+  "variantName": "hero-featured-light",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "large",
+    "structure": "eyebrow + heading + text + image"
+  },
+  "contentPattern": "A light-panel featured teaser: one row with a content cell (eyebrow, title, description, CTA) and an image cell, laid out side-by-side on desktop.",
+  "usage": {
+    "reuseCount": 1
+  },
+  "options": [],
+  "memberVariantIds": ["hero-featured-light"]
+}

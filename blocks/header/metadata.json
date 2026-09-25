@@ -1,0 +1,16 @@
+{
+  "variantName": "header",
+  "baseBlock": "header",
+  "canonicalModel": "configuration",
+  "visualCharacteristics": {
+    "colorScheme": "mixed",
+    "complexity": "advanced",
+    "density": "moderate"
+  },
+  "contentPattern": "Global header/navigation sourced from the nav fragment: brand logo, primary navigation, search, and utility links.",
+  "usage": {
+    "reuseCount": 64
+  },
+  "options": [],
+  "memberVariantIds": []
+}

@@ -29,7 +29,7 @@
   /* spacing */
   --section-padding: 10px;
   --content-max-width: 1680px;
-  --nav-height: 64px;
+  --nav-height: 117px;           /* compact header: 25px utility bar + 92px main bar */
 
   /* heading sizes (desktop) */
   --heading-size-xxl: 40px;
@@ -38,4 +38,10 @@
   --heading-size-m: 18px;
   --heading-size-s: 16px;
   --heading-size-xs: 14px;
+}
+
+@media (width >= 1200px) {
+  :root {
+    --nav-height: 200px;         /* desktop header (194px) + source 6px offset */
+  }
 }

@@ -65,6 +65,22 @@ body.appear {
 
 header {
   height: var(--nav-height);
+  background-color: var(--background-color);
+}
+
+/* compact-bar nav drawer pushes the page right (header.js sets body.nav-open) */
+body > main,
+body > footer {
+  transition: transform 0.5s;
+}
+
+body.nav-open {
+  overflow-x: hidden;
+}
+
+body.nav-open > main,
+body.nav-open > footer {
+  transform: translateX(275px);
 }
 
 header .header,

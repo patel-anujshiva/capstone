@@ -1,20 +1,216 @@
+/*
+ * Footer — WKND experience-fragment footer.
+ * Values extracted from source computed styles (wknd.site/ca/en .cmp-experiencefragment--footer):
+ *  - band: #202020, margin-top 48px, padding 16px 0 24px, text #ebebeb, 18px/27px
+ *  - container: 1192px max, padding 0 14px
+ *  - mobile/tablet (base): logo 4/12 beside a vertical nav 8/12; "Follow Us", icons and legal
+ *    stack full width below
+ *  - desktop (>= 1200px; source switches at ~1025px): one row, logo 2 | nav 6 | title 2 | social 2
+ *  - nav links: 14px/21px uppercase #ebebeb, padding 15px 17px, underline on hover
+ *  - "Follow Us": 16px/24px 600 uppercase (right-aligned on desktop)
+ *  - social: adjacent 48px #ebebeb squares with a #202020 glyph, no hover change
+ *  - legal: 12px/15px justified #f7f7f7, paragraphs 13.5px apart, underlined links
+ */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  margin-top: 48px;
+  padding: 16px 0 24px;
+  background-color: var(--dark-color);
+  color: var(--text-color-inverse);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 27px;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+.footer .footer-container {
+  box-sizing: border-box;
+  max-width: 1192px;
+  margin: 0 auto;
+  padding: 0 14px;
+  color: var(--light-color);
 }
 
-footer .footer p {
+.footer p,
+.footer ul {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer .footer-top {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+}
+
+/* --- brand --- */
+.footer .footer-brand {
+  padding: 0 14px;
+}
+
+.footer .footer-brand a:any-link {
+  display: block;
+  width: fit-content;
+}
+
+/* source logo and social links have no hover state (override global a:hover) */
+.footer .footer-brand a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* source: inline logo on a 27px line (7px margins + ~7px strut descent below the
+   baseline); made explicit so the column is 68.7px in both standards and quirks mode */
+.footer .footer-brand img {
+  display: block;
+  width: 100%;
+  max-width: 128px;
+  height: auto;
+  margin: 7px 0 14px;
+}
+
+/* --- footer navigation (root item link is hidden; its children are the links) --- */
+.footer .footer-nav {
+  padding: 10px 14px 0;
+}
+
+.footer .footer-nav-root > a:any-link {
+  display: none;
+}
+
+/* mobile: one link per row (27px line + 16px gap); desktop: one horizontal row */
+.footer .footer-nav-root > ul > li {
+  margin-bottom: 16px;
+}
+
+.footer .footer-nav a:any-link {
+  padding: 15px 17px;
+  color: var(--text-color-inverse);
+  font-size: 14px;
+  line-height: 21px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer .footer-nav a:hover,
+.footer .footer-nav a:focus-visible {
+  color: var(--text-color-inverse);
+  text-decoration: underline;
+}
+
+/* --- social --- */
+.footer .footer-social {
+  grid-column: 1 / -1;
+}
+
+/* flow-root keeps the heading margins inside the title box (source column is a float) */
+.footer .footer-social-title {
+  display: flow-root;
+  padding: 0 14px;
+}
+
+.footer .footer-social-title :is(h1, h2, h3, h4, h5, h6) {
+  margin: 21.28px 0;
+  color: var(--text-color-inverse);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.footer .footer-social-list {
+  display: flex;
+  padding: 0 14px;
+}
+
+/* source glyph box sits at padding 18px 0 0 14px inside each square */
+.footer a.footer-social-link:any-link {
+  display: block;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  padding: 18px 0 0 14px;
+  background-color: var(--brand-third);
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.footer a.footer-social-link:hover {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+/* glyph painted from the authored icon (set by footer.js), left/top aligned like the source */
+.footer a.footer-social-link::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 17.5px;
+  background: var(--footer-social-icon) left top / auto 100% no-repeat;
+}
+
+.footer .footer-social-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- legal copy (source: 36px hidden separator above it) --- */
+.footer .footer-legal {
+  margin-top: 36px;
+  padding: 0 14px;
+}
+
+.footer .footer-legal p {
+  margin: 0 0 13.5px;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: justify;
+}
+
+.footer .footer-legal a:any-link,
+.footer .footer-legal a:hover {
+  color: var(--light-color);
+  text-decoration: underline;
+}
+
+@media (width >= 1200px) {
+  .footer .footer-top {
+    grid-template-columns: 2fr 6fr 4fr;
+  }
+
+  .footer .footer-nav {
+    padding-top: 15px;
+  }
+
+  .footer .footer-nav-root > ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer .footer-nav-root > ul > li {
+    margin-bottom: 0;
+  }
+
+  .footer .footer-social {
+    display: grid;
+    grid-column: auto;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .footer .footer-social-title {
+    text-align: right;
+  }
+
+  .footer .footer-social-list {
+    padding: 0;
   }
 }

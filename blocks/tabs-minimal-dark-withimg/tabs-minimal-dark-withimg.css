@@ -1,0 +1,134 @@
+/*
+ * Tabs (minimal-dark-withimg) — forked tabs variant.
+ * A filter-tab strip above a responsive card grid of adventure cards.
+ * Visual design migrated from https://wknd.site/ca/en/adventures.html
+ * (Core Components cmp-tabs + cmp-image-list). Values from getComputedStyle.
+ * Every selector is scoped to the full variant class.
+ */
+
+/* ---- filter tab strip ---- */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 18px 0;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-tab {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-tab:hover {
+  color: var(--link-color);
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-tab[aria-selected='true'] {
+  background-color: var(--text-color);
+  color: #fff;
+}
+
+/* ---- card grid ---- */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px 14px;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-item {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-item[hidden] {
+  display: none;
+}
+
+/* ---- card image (landscape, ~260x200 => 13/10) ---- */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-image {
+  margin: 0;
+  line-height: 0;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-image img,
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 13 / 10;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ---- card text ---- */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content {
+  padding: 0;
+}
+
+/* source cmp-image-list shows no category eyebrow — hide the token row */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content p:has(strong) {
+  display: none;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content h3 {
+  margin: 0;
+  padding-top: 8px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content h3 a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-content p {
+  margin: 16px 0 0;
+  color: #696969;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+
+  /* source clamps the description to a single truncated line */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+/* ---- responsive columns ---- */
+@media (width >= 600px) {
+  .tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .tabs-minimal-dark-withimg .tabs-minimal-dark-withimg-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "variantName": "cards-profile",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasBackgroundImage": false,
+    "hasGrid": true,
+    "imagePattern": "avatar",
+    "structure": "image + heading + list"
+  },
+  "contentPattern": "A grid of profile cards; each row is one profile \u2014 image cell (circular avatar) + body cell (name h3, role h5, social links).",
+  "usage": {
+    "reuseCount": 3,
+    "pagesUsing": [
+      "/ca/en/magazine/arctic-surfing"
+    ],
+    "lastUsed": "2026-09-24T13:40:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-profile"
+  ]
+}

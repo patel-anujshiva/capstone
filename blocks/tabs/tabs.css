@@ -1,0 +1,134 @@
+/*
+ * Tabs Block — WKND adventure trip details tabs.
+ * A horizontal tab strip above stacked panels; the selected tab is a solid
+ * dark (#202020) fill with white text, unselected tabs are plain/transparent.
+ * Values extracted from computed styles on wknd.site (.cmp-tabs).
+ */
+
+/* tab strip — adjacent tabs, no gap, no divider (matches source) */
+.tabs .tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 18px 0;
+  max-width: 100%;
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 auto;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs); /* 14px */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
+/* selected tab — solid dark fill, white text */
+.tabs .tabs-list button[aria-selected='true'] {
+  background-color: var(--dark-color);
+  color: #fff;
+  cursor: default;
+}
+
+/* panels — no padding around content on the source */
+.tabs .tabs-panel {
+  padding: 0;
+}
+
+.tabs .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* panel body — source .cmp-contentfragment: 18px / 27px, #202020 (same at all widths) */
+.tabs .tabs-panel > div {
+  display: flow-root; /* contain child margins inside the panel, as on source */
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 27px;
+}
+
+/* source renders the content-fragment title (h3.cmp-contentfragment__title)
+   with display:none — hide the imported duplicate title leading each panel */
+.tabs .tabs-panel > div > h3:first-child {
+  display: none;
+}
+
+/* panel paragraphs — 18px / 45px, justified, 0 0 13.5px (source computed) */
+.tabs .tabs-panel > div > p {
+  margin: 0 0 13.5px;
+  font-size: 18px;
+  line-height: 45px;
+  text-align: justify;
+}
+
+/* sub-headings (Keramas / Nusa Dua / Sanur) are bold inline runs inside p */
+.tabs .tabs-panel p strong,
+.tabs .tabs-panel p b {
+  font-weight: 700;
+}
+
+/* image paragraph — source image wrapper sits at 27px line-height, no margin */
+.tabs .tabs-panel > div > p:has(> picture),
+.tabs .tabs-panel > div > p:has(> img) {
+  margin: 0;
+  line-height: 27px;
+  text-align: left;
+}
+
+.tabs .tabs-panel picture {
+  display: inline;
+}
+
+.tabs .tabs-panel img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 7px 0;
+  vertical-align: baseline;
+}
+
+/* what-to-bring list — no bullets, 18px 0 margin, items 36px tall, 12px inset */
+.tabs .tabs-panel ul {
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs .tabs-panel li {
+  margin: 0;
+  padding: 0 0 0 12px;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+/* source marker is a right-pointing triangle glyph from wknd-icon-font
+   (9.9px, relative top -2.475px / left -7.425px); the font is not shipped,
+   so draw it with borders — 6px + 3.9px spacing = the 9.9px glyph advance */
+.tabs .tabs-panel li::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: -2.475px;
+  left: -7.425px;
+  width: 0;
+  height: 0;
+  margin-right: 3.9px;
+  border-style: solid;
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent currentcolor;
+}

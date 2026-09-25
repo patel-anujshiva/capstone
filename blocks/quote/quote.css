@@ -1,0 +1,80 @@
+/*
+ * Quote Block — pull-quote inside article body.
+ *
+ * Values extracted from the WKND source pull-quote
+ * (https://wknd.site/ca/en/magazine/arctic-surfing.html — inline blockquote in
+ * the .text component). getComputedStyle on the source blockquote reports:
+ *   font-family: Source Sans Pro (body stack)   font-size: 18px   weight: 400
+ *   font-style: normal   line-height: 27px (1.5)   color: #202020
+ *   text-align: left     margin: 18px 40px        no border/background/quotes
+ * The yellow rule that appears just below the quote on the source page belongs
+ * to the following <h2> heading, not to the blockquote, so it is not part of
+ * this block.
+ *
+ * EDS decorates the block as: .quote.block > figure > blockquote > p
+ * (decorateMain wraps the quote text in a <p>), so the inner <p> margins are
+ * reset and the blockquote owns the spacing.
+ *
+ * Option minimal-dark-withimg: image above, quote on a muted panel (no source
+ * instance on this page — kept structurally sound using brand tokens).
+ */
+
+.quote figure {
+  margin: 0;
+}
+
+.quote blockquote {
+  margin: 18px 40px;
+  padding: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color: var(--text-color);
+  text-align: left;
+  quotes: none;
+}
+
+/* EDS wraps the quote text in a <p>; blockquote owns the spacing */
+.quote blockquote p {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.quote figcaption {
+  margin-top: 0.75em;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.quote .quote-image {
+  margin-bottom: 1.5em;
+}
+
+.quote .quote-image img,
+.quote .quote-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* option: image-led variant on a muted panel */
+.quote.minimal-dark-withimg blockquote {
+  margin: 0;
+  padding: 2em 1.5em 1.5em;
+  background-color: var(--light-color);
+}
+
+.quote.minimal-dark-withimg figcaption {
+  margin-top: 0;
+  padding: 0 1.5em 1.5em;
+  background-color: var(--light-color);
+}
+
+.quote.minimal-dark-withimg .quote-image {
+  margin-bottom: 0;
+}

@@ -1,0 +1,232 @@
+/*
+ * Cards (profile) — contributor / guide profile cards.
+ * Borderless card: circular avatar, name, uppercase role, social icon squares.
+ * Values extracted from source computed styles (wknd.site/ca/en/about-us).
+ *
+ * NOTE: on this page each profile is authored as its own cards-profile block,
+ * so the multi-column grid is composed at the SECTION level — every
+ * .cards-profile-wrapper is a grid cell, and heading blocks span a full row.
+ */
+
+/* --- Section-level grid: profiles flow into columns, headings break rows --- */
+main .section.cards-profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+main .section.cards-profile-container > .default-content-wrapper {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main .section.cards-profile-container > .cards-profile-wrapper {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width >= 600px) {
+  main .section.cards-profile-container > .cards-profile-wrapper {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (width >= 900px) {
+  main .section.cards-profile-container {
+    padding: 0 32px;
+  }
+
+  main .section.cards-profile-container > .cards-profile-wrapper {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+}
+
+/* a byline block always takes the full row (overrides the grid cell sizing) */
+main .section.cards-profile-container > .cards-profile-wrapper:has(> .cards-profile.byline) {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+/* --- The card --- */
+.cards-profile > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-profile > ul > li {
+  border: none;
+  background: none;
+  text-align: center;
+  padding: 9px 14px 18px;
+}
+
+/* circular avatar */
+.cards-profile .cards-profile-card-image {
+  line-height: 0;
+}
+
+.cards-profile .cards-profile-card-image img {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 7px auto;
+}
+
+/* name + role + social */
+.cards-profile .cards-profile-card-body {
+  margin-top: 10px;
+}
+
+.cards-profile .cards-profile-card-body h3 {
+  margin: 0 0 6px;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--text-color);
+}
+
+.cards-profile .cards-profile-card-body h5 {
+  margin: 0 0 4px;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* --- Social icon row: dark squares that touch, centered --- */
+.cards-profile .cards-profile-social {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 18px;
+}
+
+.cards-profile a.cards-profile-icon:any-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background-color: var(--dark-color);
+  background-image: none;
+  color: var(--text-color-inverse);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cards-profile a.cards-profile-icon:hover {
+  background-color: #000;
+}
+
+/* the mask paints the glyph in the icon color via the element background */
+.cards-profile a.cards-profile-icon::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-color-inverse);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 18px 18px;
+}
+
+.cards-profile a.cards-profile-icon.facebook::before {
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.5-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8z"/></svg>');
+}
+
+.cards-profile a.cards-profile-icon.twitter::before {
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 5.9c-.7.35-1.5.55-2.35.65.85-.5 1.5-1.3 1.8-2.25-.8.5-1.65.8-2.6 1a4.1 4.1 0 0 0-7 3.75A11.6 11.6 0 0 1 3.4 4.7a4.1 4.1 0 0 0 1.25 5.5c-.65 0-1.3-.2-1.85-.5v.05a4.1 4.1 0 0 0 3.3 4 4.1 4.1 0 0 1-1.85.07 4.1 4.1 0 0 0 3.85 2.85A8.3 8.3 0 0 1 2 18.4a11.6 11.6 0 0 0 6.3 1.85c7.55 0 11.7-6.25 11.7-11.7v-.55c.8-.6 1.5-1.3 2-2.1z"/></svg>');
+}
+
+.cards-profile a.cards-profile-icon.instagram::before {
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.17-.42-.37-1.06-.42-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.73.36-1.05.68-.32.32-.52.62-.68 1.05-.13.32-.28.8-.32 1.7-.06 1.24-.07 1.6-.07 4.74s.01 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.73.68 1.05.32.32.62.52 1.05.68.32.13.8.28 1.7.32 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.73-.36 1.05-.68.32-.32.52-.62.68-1.05.13-.32.28-.8.32-1.7.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.8 2.8 0 0 0-.68-1.05 2.8 2.8 0 0 0-1.05-.68c-.32-.13-.8-.28-1.7-.32-1.24-.06-1.6-.07-4.74-.07zm0 2.76a5.29 5.29 0 1 1 0 10.58 5.29 5.29 0 0 1 0-10.58zm0 1.62a3.67 3.67 0 1 0 0 7.34 3.67 3.67 0 0 0 0-7.34zm5.5-.16a1.24 1.24 0 1 1 0 2.47 1.24 1.24 0 0 1 0-2.47z"/></svg>');
+}
+
+/*
+ * --- Byline variant (.cards-profile.byline, set by JS when the name is an h2) ---
+ * Author bio at the end of an article: separator rule, small round avatar on
+ * the left, name + role offset to its right, social squares below (mobile /
+ * tablet) or in the right-hand quarter (desktop).
+ * Values extracted from source computed styles (wknd.site magazine article).
+ */
+.cards-profile.byline {
+  margin-top: 24px;
+  padding-top: 64px;
+  border-top: 2px solid var(--brand-third);
+}
+
+.cards-profile.byline > ul > li {
+  position: relative;
+  display: flow-root;
+  padding: 0;
+  text-align: left;
+}
+
+.cards-profile.byline .cards-profile-card-image {
+  float: left;
+  width: 60px;
+}
+
+.cards-profile.byline .cards-profile-card-image img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 7px 0;
+  border-radius: 30px;
+}
+
+.cards-profile.byline .cards-profile-card-body {
+  margin-top: 0;
+}
+
+.cards-profile.byline .cards-profile-card-body h2 {
+  margin: 0 0 4px 85px;
+  padding: 8px 0 0;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--text-color);
+}
+
+.cards-profile.byline .cards-profile-card-body > p {
+  margin: 0 0 13.5px 85px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: rgb(105 105 105);
+}
+
+.cards-profile.byline .cards-profile-social {
+  clear: both;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+@media (width >= 1200px) {
+  .cards-profile.byline > ul > li {
+    padding-right: 25%;
+  }
+
+  .cards-profile.byline .cards-profile-social {
+    position: absolute;
+    top: 0;
+    left: 75%;
+  }
+}

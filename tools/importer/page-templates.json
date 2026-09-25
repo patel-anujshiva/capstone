@@ -11,7 +11,32 @@
       ],
       "coverageGaps": [],
       "description": "General content landing page with multiple stacked hero/teaser bands and supporting content sections",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "cards-profile",
+          "instances": [
+            ".cmp-experience-fragment--contributor"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "main-content",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-profile"
+          ],
+          "defaultContent": [
+            ".title",
+            ".text.cmp-text--font-small"
+          ]
+        }
+      ]
     },
     {
       "name": "adventure-detail",
@@ -51,7 +76,57 @@
       ],
       "coverageGaps": [],
       "description": "Detail page with breadcrumbs, an image carousel, and a tabbed information panel",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "breadcrumbs",
+          "instances": [
+            ".cmp-breadcrumb"
+          ]
+        },
+        {
+          "name": "carousel",
+          "instances": [
+            ".cmp-carousel"
+          ]
+        },
+        {
+          "name": "tabs",
+          "instances": [
+            ".cmp-tabs"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "top",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "breadcrumbs",
+            "carousel"
+          ],
+          "defaultContent": [
+            ".title"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "detail-body",
+          "selector": [
+            ".cmp-tabs",
+            "main .container:last-of-type"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs"
+          ],
+          "defaultContent": []
+        }
+      ]
     },
     {
       "name": "category-listing",
@@ -61,7 +136,50 @@
       ],
       "coverageGaps": [],
       "description": "Category landing page with a hero followed by a tabbed listing of items",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [
+            ".cmp-teaser"
+          ]
+        },
+        {
+          "name": "tabs-minimal-dark-withimg",
+          "instances": [
+            ".cmp-tabs"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "header",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "hero"
+          ],
+          "defaultContent": [
+            ".title"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "listing",
+          "selector": [
+            ".cmp-tabs",
+            "main .container:last-of-type"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs-minimal-dark-withimg"
+          ],
+          "defaultContent": []
+        }
+      ]
     },
     {
       "name": "faq-page",
@@ -71,7 +189,33 @@
       ],
       "coverageGaps": [],
       "description": "FAQ layout with hero and repeated accordion/question-answer content blocks",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "accordion",
+          "instances": [
+            ".cmp-accordion"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "faq-content",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            ".title",
+            ".text",
+            ".image"
+          ]
+        }
+      ]
     },
     {
       "name": "homepage",
@@ -90,7 +234,64 @@
       ],
       "coverageGaps": [],
       "description": "Locale landing page: full-width carousel/hero at top followed by stacked hero teasers and a cards grid",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "carousel",
+          "instances": [
+            ".cmp-carousel"
+          ]
+        },
+        {
+          "name": "hero-featured-light",
+          "instances": [
+            ".cmp-teaser--featured"
+          ]
+        },
+        {
+          "name": "hero",
+          "instances": [
+            ".cmp-teaser--hero"
+          ]
+        },
+        {
+          "name": "cards",
+          "instances": [
+            ".cmp-image-list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero-carousel",
+          "selector": [
+            ".cmp-carousel",
+            "main .container:first-of-type"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "body",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-featured-light",
+            "hero",
+            "cards"
+          ],
+          "defaultContent": [
+            ".title"
+          ]
+        }
+      ]
     },
     {
       "name": "magazine-article",
@@ -110,7 +311,76 @@
       ],
       "coverageGaps": [],
       "description": "Long-form article layout with hero, breadcrumbs, pull quotes, and stacked text/image body sections",
-      "blocks": []
+      "blocks": [
+        {
+          "name": "breadcrumbs",
+          "instances": [
+            ".cmp-breadcrumb"
+          ]
+        },
+        {
+          "name": "quote",
+          "instances": [
+            ".text blockquote",
+            "blockquote"
+          ]
+        },
+        {
+          "name": "cards-profile",
+          "instances": [
+            ".cmp-experiencefragment--jacob-wester",
+            ".experiencefragment [class*=\"cmp-experiencefragment--\"]:not(.cmp-experiencefragment--header):not(.cmp-experiencefragment--footer)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero",
+          "selector": [
+            ".cmp-image",
+            "main .image:first-of-type"
+          ],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".cmp-image"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "article-body",
+          "selector": [
+            "main.cmp-layout-container--fixed",
+            ".cmp-container > .aem-Grid"
+          ],
+          "style": null,
+          "blocks": [
+            "breadcrumbs",
+            "quote"
+          ],
+          "defaultContent": [
+            ".title",
+            ".text"
+          ]
+        },
+        {
+          "id": "rc3",
+          "name": "author-bio",
+          "selector": [
+            ".experiencefragment",
+            ".cmp-experiencefragment--jacob-wester"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-profile"
+          ],
+          "defaultContent": []
+        }
+      ]
     }
-  ]
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
 }

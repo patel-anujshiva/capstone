@@ -1,0 +1,16 @@
+{
+  "variantName": "footer",
+  "baseBlock": "footer",
+  "canonicalModel": "configuration",
+  "visualCharacteristics": {
+    "colorScheme": "mixed",
+    "complexity": "simple",
+    "density": "moderate"
+  },
+  "contentPattern": "Global footer sourced from the footer fragment: logo, navigation links, social links, and legal/copyright text.",
+  "usage": {
+    "reuseCount": 64
+  },
+  "options": [],
+  "memberVariantIds": []
+}

@@ -1,0 +1,26 @@
+{
+  "variantName": "breadcrumbs",
+  "baseBlock": "breadcrumbs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "minimal",
+    "hasBackgroundImage": false,
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "list"
+  },
+  "contentPattern": "A single-row list of crumbs; each cell is one crumb (linked ancestors + a plain-text current page).",
+  "usage": {
+    "reuseCount": 46,
+    "pagesUsing": [
+      "/ca/en/magazine/arctic-surfing",
+      "/ca/en/adventures/bali-surf-camp"
+    ],
+    "lastUsed": "2026-09-24T13:50:24.748Z"
+  },
+  "options": [],
+  "memberVariantIds": [
+    "v_4d46829f22d9"
+  ]
+}
