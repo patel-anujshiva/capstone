@@ -28,15 +28,22 @@ async function fetchNav() {
 }
 
 /**
- * Resolves relative image paths against the fragment URL (not the page URL).
+ * Normalizes the fragment so authored (DA-converted) and raw markup decorate the same way:
+ * <picture> is unwrapped to its <img>, image paths are resolved against the fragment URL
+ * (not the page URL), and a <p> wrapping the start of a list item is unwrapped.
  * @param {Element} root
  * @param {string} base
  */
-function resolveImages(root, base) {
+function normalizeFragment(root, base) {
+  root.querySelectorAll('picture').forEach((picture) => {
+    const img = picture.querySelector('img');
+    if (img) picture.replaceWith(img); else picture.remove();
+  });
   root.querySelectorAll('img[src]').forEach((img) => {
     img.src = new URL(img.getAttribute('src'), base).href;
     img.loading = 'eager';
   });
+  root.querySelectorAll('li > p:first-child').forEach((p) => p.replaceWith(...p.childNodes));
 }
 
 /**
@@ -279,7 +286,7 @@ export default async function decorate(block) {
 
   const fragment = document.createElement('div');
   fragment.innerHTML = navData.html;
-  resolveImages(fragment, navData.base);
+  normalizeFragment(fragment, navData.base);
 
   const sections = {};
   [...fragment.children].forEach((div, i) => {
