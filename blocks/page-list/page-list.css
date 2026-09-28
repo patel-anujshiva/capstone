@@ -1,0 +1,95 @@
+/*
+ * Page list — text list of linked page titles with dates (article "Up Next").
+ * Values extracted from source computed styles (wknd.site magazine article .cmp-list--upnext):
+ *  - list: padding-top 32px; items 263px wide, 136px tall, 18px apart
+ *  - link: padding 8px 16px, 5px #ebebeb left border; hover background #ffea00
+ *  - title: 18px/27px uppercase #202020, padding 5px
+ *  - date: 12px/18px uppercase rgb(105 105 105), padding 5px
+ *  - desktop (>= 1200px): right-hand column, 3 of 12 (291px incl. 14px gutters) beside the
+ *    article body, which narrows to make room; the block is authored at the end of the
+ *    article section and positioned at the section's top-right
+ */
+
+.page-list ul {
+  margin: 0;
+  padding: 32px 0 0;
+  list-style: none;
+}
+
+.page-list li {
+  margin: 0 0 18px;
+}
+
+.page-list a.page-list-link:any-link {
+  display: block;
+  box-sizing: border-box;
+  min-height: 136px;
+  padding: 8px 16px;
+  border-left: 5px solid var(--brand-third);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* source hover: link background turns WKND yellow */
+.page-list a.page-list-link:hover,
+.page-list a.page-list-link:focus-visible {
+  background-color: var(--brand-primary);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.page-list .page-list-title {
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+}
+
+.page-list .page-list-date {
+  display: block;
+  padding: 5px;
+  color: rgb(105 105 105);
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+/*
+ * Desktop: the article section becomes a grid. The lead image and breadcrumbs span the full
+ * content width; the article body sits in the body column; the list takes the right-hand
+ * column. Source: body 8 of 12 columns, 1 column gap (97px), sidebar 3 of 12 (291px).
+ * Dense auto-placement starts the list on the first row free in its column, i.e. beside the
+ * start of the body (sparse placement would put it beside the last body block).
+ */
+@media (width >= 1200px) {
+  main > .section.page-list-container {
+    display: grid;
+    grid-template-columns: minmax(32px, 1fr) minmax(0, 812px) 388px minmax(32px, 1fr);
+    grid-auto-flow: row dense;
+    align-items: start;
+  }
+
+  main > .section.page-list-container > div {
+    grid-column: 2;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main > .section.page-list-container > .default-content-wrapper:first-child,
+  main > .section.page-list-container > .breadcrumbs-wrapper {
+    grid-column: 1 / -1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: calc(1200px + 64px);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  main > .section.page-list-container > .page-list-wrapper {
+    grid-column: 3;
+    grid-row-end: span 99;
+    padding: 0 14px 0 calc(97px + 14px);
+  }
+}
