@@ -6,6 +6,8 @@ import accordionParser from './parsers/accordion.js';
 
 // TRANSFORMER IMPORTS
 import wkndCleanupTransformer from './transformers/wknd-cleanup.js';
+import wkndMetadataTransformer from './transformers/wknd-metadata.js';
+import wkndDynamicListsTransformer from './transformers/wknd-dynamic-lists.js';
 
 const PAGE_TEMPLATE = {
   name: 'faq-page',
@@ -29,6 +31,8 @@ const parsers = {
 
 const transformers = [
   wkndCleanupTransformer,
+  wkndMetadataTransformer,
+  wkndDynamicListsTransformer,
 ];
 
 function executeTransformers(hookName, element, payload) {
@@ -87,6 +91,7 @@ export default {
     const hr = document.createElement('hr');
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
+    executeTransformers('afterMetadata', main, payload);
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 

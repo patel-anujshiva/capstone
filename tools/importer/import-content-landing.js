@@ -6,6 +6,8 @@ import cardsProfileParser from './parsers/cards-profile.js';
 
 // TRANSFORMER IMPORTS
 import wkndCleanupTransformer from './transformers/wknd-cleanup.js';
+import wkndMetadataTransformer from './transformers/wknd-metadata.js';
+import wkndDynamicListsTransformer from './transformers/wknd-dynamic-lists.js';
 
 // PAGE TEMPLATE CONFIGURATION - embedded from page-templates.json
 const PAGE_TEMPLATE = {
@@ -40,6 +42,8 @@ const parsers = {
 // TRANSFORMER REGISTRY (single section → no section transformer)
 const transformers = [
   wkndCleanupTransformer,
+  wkndMetadataTransformer,
+  wkndDynamicListsTransformer,
 ];
 
 /**
@@ -120,6 +124,7 @@ export default {
     const hr = document.createElement('hr');
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
+    executeTransformers('afterMetadata', main, payload);
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
