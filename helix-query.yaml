@@ -1,0 +1,42 @@
+# Query index definition (/query-index.json).
+#
+# This site uses the AEM configuration service, which takes precedence over this file:
+# the active definition is https://admin.hlx.page/config/patel-anujshiva/sites/capstone/content/query.yaml
+# (manage it at https://tools.aem.live). Keep this copy identical to it; changing only this
+# file has no effect on the index.
+#
+# Used by scripts/query-index.js (cards / hero / tabs-minimal-dark-withimg / page-list query mode).
+version: 1
+indices:
+  default:
+    include:
+      - '/**'
+    exclude:
+      - '/nav'
+      - '/footer'
+      - '/**/nav'
+      - '/**/footer'
+      - '/**/fragments/**'
+    target: /query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(\/.*)")
+      template:
+        select: head > meta[name="template"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      date:
+        select: head > meta[name="date"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
